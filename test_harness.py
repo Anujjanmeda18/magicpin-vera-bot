@@ -12,7 +12,9 @@ import json
 import urllib.request
 from pathlib import Path
 
-BASE_URL = "http://127.0.0.1:8080"
+import os
+
+BASE_URL = os.environ.get("BOT_URL", "http://127.0.0.1:8080")
 
 def get(path):
     req = urllib.request.Request(f"{BASE_URL}{path}", headers={"Content-Type": "application/json"})
